@@ -1,5 +1,9 @@
 'use strict';
 
+const appInsights = require("applicationinsights");
+appInsights.setup("34bc574f-f78e-4ea4-8c6c-8811c6a6afe9");
+appInsights.start();
+
 var http = require('http');
 
 var server = http.createServer(function (req, res) {
