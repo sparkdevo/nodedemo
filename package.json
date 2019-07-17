@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "applicationinsights": "^1.4.0",
     "mongodb": "^3.0.11"
   }
 }
