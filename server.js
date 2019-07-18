@@ -1,7 +1,8 @@
 'use strict';
 
+const appInsightsInstrumentationKey = process.env.AZUREAPPINSIGHTSKEY || 'use your key';
 const appInsights = require("applicationinsights");
-appInsights.setup("xxx-InstrumentationKey-xxx");
+appInsights.setup(appInsightsInstrumentationKey);
 appInsights.start();
 
 var http = require('http');

@@ -1,9 +1,12 @@
-FROM node:8
-COPY ./app.js ./app.js
-COPY ./package.json ./package.json
+FROM node:10.16
 
-WORKDIR ./
-RUN npm install applicationinsights
+RUN mkdir /nodedemo
+WORKDIR /nodedemo
+
+COPY ./*.js ./
+COPY ./*.json ./
+
+RUN npm install
 
 EXPOSE 3000
-ENTRYPOINT ["node", "app"]
+ENTRYPOINT ["node", "index"]

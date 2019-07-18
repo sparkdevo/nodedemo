@@ -4,7 +4,9 @@ function home() {
 
 function mongo() { 
     const MongoClient = require('mongodb').MongoClient;
-    const url = 'mongodb://localhost:27017';
+    const mongosvr = process.env.MONGOSVR || 'localhost';
+    const url = 'mongodb://' + mongosvr + ':27017';
+
 
     async function findOne() {
         const client = await MongoClient.connect(url)
