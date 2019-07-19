@@ -1,10 +1,5 @@
 'use strict';
 
-const appInsightsInstrumentationKey = process.env.AZUREAPPINSIGHTSKEY || 'use your key';
-const appInsights = require("applicationinsights");
-appInsights.setup(appInsightsInstrumentationKey);
-appInsights.start();
-
 var http = require('http');
 var url = require("url");
 
@@ -17,9 +12,16 @@ function startServer(route, handle) {
         let pathname = url.parse(request.url).pathname;
         console.log("Request for " + pathname + " received.");
 
-		let content = await route(handle, pathname);
-		response.writeHead(200,{"Content-Type":"text/plain"});
-		response.write(JSON.stringify(content));
+		let status = 200;
+		let result = await route(handle, pathname);
+		if (typeof result === 'string' || result instanceof String) {
+			if (result == "404 Not Found") {
+				status = 404;
+			}
+		}
+		
+		response.writeHead(status,{"Content-Type":"text/plain"});
+		response.write(JSON.stringify(result));
 		response.end();
 	}
 
