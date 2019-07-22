@@ -1,7 +1,8 @@
 const appInsightsInstrumentationKey = process.env.AZUREAPPINSIGHTSKEY || 'use your key';
 const appInsights = require("applicationinsights");
-appInsights.setup(appInsightsInstrumentationKey);
-appInsights.start();
+appInsights.setup(appInsightsInstrumentationKey)
+    .setSendLiveMetrics(true)
+    .start();
 
 var server = require("./server");
 var router = require("./router");
