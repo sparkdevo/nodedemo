@@ -17,6 +17,8 @@ function startServer(route, handle) {
 		if (typeof result === 'string' || result instanceof String) {
 			if (result == "404 Not Found") {
 				status = 404;
+			} else {
+				status = 500;
 			}
 		}
 		
