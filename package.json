@@ -1,7 +1,7 @@
 {
   "name": "nodedemo",
   "version": "1.0.0",
-  "description": "",
+  "description": "for node js test",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -12,5 +12,9 @@
     "applicationinsights": "^1.4.0",
     "mongodb": "^3.0.11",
     "promise": "^8.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sparkdevo/nodedemo.git"
   }
 }
